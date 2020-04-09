@@ -6,19 +6,21 @@
     <title>Document</title>
 </head>
 <script>
-    function acendelampada() {
-        document.getElementById("luz").src = "_imagens/lampada-acesa.jpg";
-    }
-    function apagalampada(){
-        document.getElementById("luz").src = "_imagens/lampada-apagada.jpg";
-    }
-    function quebralampada(){
-        document.getElementById("luz").src = "_imagens/lampada-quebrada.jpg"
+    var quebrada = false;
+    function mudalampada(tipo) {
+            if (!quebrada) {
+                document.getElementById("luz").src = "_imagens/" + tipo + ".jpg";
+                if (tipo== 'lampada-quebrada') {
+                    quebrada=true;
+                }
+            }
+        
+
     }
     </script>
 <h1>Acenda a Lâmpada</h1>
 <body>
-    <img src="_imagens/lampada-apagada.jpg" id="luz" onmousemove="acendelampada()"; onmouseout="apagalampada()" onclick="quebralampada()"
+    <img src="_imagens/lampada-apagada.jpg" id="luz" onmousemove="mudalampada('lampada-acesa')"; onmouseout="mudalampada('lampada-apagada')" onclick="mudalampada('lampada-quebrada')"
      />
     </script>
 </body>
